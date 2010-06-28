@@ -5,9 +5,7 @@ Culerity integrates Cucumber and Celerity in order to test your application's fu
 Culerity lets you:
 
 * run Celerity from within Cucumber which allows you to test the full stack of your Rails (or other web) application from Database to in browser JavaScript
-
 * run your application in any Ruby (like MRI 1.8.6) while Celerity runs in JRuby so you can still use gems/plugins that would not work with JRuby
-
 * reuse existing Webrat-Style step definitions
 
 ## Getting Started
