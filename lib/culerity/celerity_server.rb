@@ -68,13 +68,17 @@ module Culerity
     end
     
     def proxify(result)
-      if result.is_a?(Array)
-        "[" + result.map {|x| proxify(x) }.join(", ") + "]"
-      elsif [Symbol, String, TrueClass, FalseClass, Fixnum, Float, NilClass].include?(result.class)
-        result.inspect
-      else
-        @proxies[result.object_id] = result
-        "Culerity::RemoteObjectProxy.new(#{result.object_id}, @io)"
+      case result
+	when Array
+          "[" + result.map {|x| proxify(x) }.join(", ") + "]"
+        when Symbol, String, TrueClass, FalseClass, Fixnum, Float, NilClass
+          result.inspect
+        when Celerity::ElementCollection
+          @proxies[result.object_id] = result
+          "Culerity::RemoteEnumerableObjectProxy.new(#{result.object_id}, @io)"
+        else
+          @proxies[result.object_id] = result
+          "Culerity::RemoteObjectProxy.new(#{result.object_id}, @io)"
       end
     end
   end

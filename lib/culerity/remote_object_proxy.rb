@@ -81,4 +81,16 @@ module Culerity
       @remote_object_id
     end
   end
+
+  class RemoteEnumerableObjectProxy < RemoteObjectProxy
+    include Enumerable
+
+    def each
+      for i in (0 .. (send_remote(:length).to_i - 1))
+        element_in_collection = send_remote("[]", i)
+        yield element_in_collection 
+      end     
+    end
+  end
+
 end
