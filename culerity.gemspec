@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{culerity}
-  s.version = "0.2.10"
+  s.version = "0.2.12"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Alexander Lang"]
-  s.date = %q{2010-04-28}
+  s.date = %q{2010-08-20}
   s.default_executable = %q{run_celerity_server.rb}
   s.description = %q{Culerity integrates Cucumber and Celerity in order to test your application's full stack.}
   s.email = %q{alex@upstream-berlin.com}
@@ -43,6 +43,7 @@ Gem::Specification.new do |s|
      "lib/culerity/persistent_delivery.rb",
      "lib/culerity/remote_browser_proxy.rb",
      "lib/culerity/remote_object_proxy.rb",
+     "lib/start_celerity.rb",
      "lib/tasks/rspec.rake",
      "rails/init.rb",
      "rails_generators/culerity/culerity_generator.rb",
